@@ -3,7 +3,7 @@ module "security-group" {
 
   description = "Test security group"
   vpc_id      = "vpc-4b720c32"
-  name        = "test-sg-001"
+  name        = "test-sg"
 
   rules = {
     egress_all = {
@@ -16,7 +16,7 @@ module "security-group" {
       type             = "egress"
     }
 
-    inress_ssh_from_private = {
+    ingress_ssh_from_private = {
       cidr_blocks = ["172.16.0.0/12", "192.168.0.0/16"]
       description = "Allow incoming SSH traffic from trusted networks"
       from_port   = 22
@@ -24,7 +24,7 @@ module "security-group" {
       to_port     = 22
     }
 
-    inress_ping_from_private = {
+    ingress_ping_from_private = {
       cidr_blocks = ["172.16.0.0/12", "192.168.0.0/16"]
       description = "Allow ICMP queries from trusted networks"
       from_port   = -1
@@ -34,17 +34,6 @@ module "security-group" {
   }
 }
 
-output "id" {
-  description = "Security Group ID"
-  value       = module.security-group.id
-}
-
-output "name" {
-  description = "Security Group name"
-  value       = module.security-group.name
-}
-
-output "arn" {
-  description = "Security Group ARN"
-  value       = module.security-group.arn
-}
+output "arn" { value = module.security-group.arn }
+output "id" { value = module.security-group.id }
+output "name" { value = module.security-group.name }
