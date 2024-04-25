@@ -1,4 +1,4 @@
-module "security-group" {
+module "security_group" {
   source = "../../"
 
   description = "Test security group"
@@ -19,9 +19,8 @@ module "security-group" {
     ingress_ssh_from_private = {
       cidr_blocks = ["172.16.0.0/12", "192.168.0.0/16"]
       description = "Allow incoming SSH traffic from trusted networks"
-      from_port   = 22
-      protocol    = "TCP"
-      to_port     = 22
+      port        = 22      # Equals to from_port == to_port == 22
+      # protocol    = "TCP" # Redundant. It defaults to TCP already.
     }
 
     ingress_ping_from_private = {
@@ -33,7 +32,3 @@ module "security-group" {
     }
   }
 }
-
-output "arn" { value = module.security-group.arn }
-output "id" { value = module.security-group.id }
-output "name" { value = module.security-group.name }

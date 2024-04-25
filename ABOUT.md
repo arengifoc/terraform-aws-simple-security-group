@@ -1,7 +1,10 @@
-# Simple Security Group module
-This module creates a Security Group and its rules in a fashioned and simplified way that's easy to read, understand and maintain.
+# Security Group module
+
+This module creates Security Groups and rules in a simple way.
 
 ## Examples
-| Name | Description
-|------|---------|
-| [complete](./examples/complete/) | All features documented |
+
+| Name                                 | Description                         |
+| ------------------------------------ | ----------------------------------- |
+| [complete](../../examples/complete/) | Security Group with different rules |
+

@@ -10,8 +10,9 @@ Configuration in this directory creates a Security Group with the following char
 ## Usage
 
 ```hcl
-module "security-group" {
-  source = "../../"
+module "security_group" {
+  # Replace 'master' with an appropriate and recent tag for this module
+  source = "git@github.com:EDRInc/infrastructure-modules.git//modules/aws-security-group?ref=master"
 
   description = "Test security group"
   vpc_id      = "vpc-4b720c32"
@@ -31,9 +32,8 @@ module "security-group" {
     ingress_ssh_from_private = {
       cidr_blocks = ["172.16.0.0/12", "192.168.0.0/16"]
       description = "Allow incoming SSH traffic from trusted networks"
-      from_port   = 22
+      port        = 22
       protocol    = "TCP"
-      to_port     = 22
     }
 
     ingress_ping_from_private = {
@@ -45,10 +45,6 @@ module "security-group" {
     }
   }
 }
-
-output "arn" { value = module.security-group.arn }
-output "id" { value = module.security-group.id }
-output "name" { value = module.security-group.name }
 ```
 
 To run this example you need to execute:
