@@ -4,6 +4,6 @@ This module creates Security Groups and rules in a simple way.
 
 ## Examples
 
-| Name                           | Description                         |
-| ------------------------------ | ----------------------------------- |
-| [complete](examples/complete/) | Security Group with different rules |
+| Name                             | Description                         |
+| -------------------------------- | ----------------------------------- |
+| [complete](./examples/complete/) | Security Group with different rules |
